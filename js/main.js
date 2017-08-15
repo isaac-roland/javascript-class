@@ -1,6 +1,6 @@
 var GameState = {
     preload: function() {
-        this.load.image('background', 'pictures/epic_face.png');
+        this.load.image('background', 'pictures/bugatti_chiron.jpg');
         this.load.image('arrow', 'pictures/super_short_name.jpg')
         this.load.image('invader', 'pictures/invader.jpg');
         this.load.image('epicFace', 'pictures/epic_face.png');
@@ -35,7 +35,7 @@ game.state.add('GameState', GameState);
 
 game.state.start('GameState');
 
-var i = "WATTS up, thats quite SHOCKING, I'm glad I'm not in your CURRENT situation, don't you wanna go HOME? im quite conFUSED";
+//var i = "WATTS up, thats quite SHOCKING, I'm glad I'm not in your CURRENT situation, don't you wanna go HOME? im quite conFUSED";
 
 //alert(i);
 

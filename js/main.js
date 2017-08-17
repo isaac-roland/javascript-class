@@ -1,21 +1,31 @@
 var GameState = {
     preload: function() {
-        this.load.image('background', 'pictures/epic_face.png');
-        this.load.image('arrow', 'pictures/super_short_name.jpg')
+        this.load.image('background', 'pictures/invader.jpg');
+        this.load.image('arrow', 'pictures/invader.jpg')
         this.load.image('invader', 'pictures/invader.jpg');
-        this.load.image('epicFace', 'pictures/epic_face.png');
+        this.load.image('epicFace', 'pictures/invader.jpg');
         this.load.image('outerSpace', 'pictures/invader.jpg');
-        this.load.image('theFaceOfEpicness', 'pictures/super_short_name.jpg');
-        this.load.image('rightArrow', 'Desktop/arrow.png');
-        //this.load.image('theFaceOfEpicness', 'pictures/super_short_name.jpeg');
+        this.load.image('theFaceOfEpicness', 'pictures/invader.jpg');
+        this.load.image('rightArrow', 'pictures/invader.jpg');
     },
     create: function() {
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+        this.scale.pageAlignH
         this.background = this.game.add.sprite(10, 10, 'background');
         this.invader = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'invader');
         this.invader.anchor.setTo(0.5, 0.5);
-        this.rightArrow = this.game.add.sprite(580, this,game.world.centerY, 'arrow');
-        this.rightArrow
+
+        this.leftArrow = this.game.add.sprite(60, this,game.world.centerY, 'invader');
+        this.leftArrow.anchor.setTo(0.5);
+        this.leftArrow.scale.x = {direction: -1};
+        this.leftArrow.customParams = {direction: -1};
+        this.leftArrow.inputEnabled = true;
+        this.leftArrow.input.pixelPerfectClick = true;
+        this.leftArrow.events.onInputDown.add(this.switchAnimal, this);
+
+        this.rightArrow = this.game.add.sprite(580, this,game.world.centerY, 'invader');
+        this.rightArrow.anchor.setTo(0.5);
+        this.rightArrow.customParams = {direction: 1};
         // this.invader.scale.setTo(1, 1);
         // this.rightArrow = this.game.add.sprite(580, this.game.world.centerY, 'arrow');
         // this.epicFace = this.game.add.sprite(120, 10, 'epicFace');
@@ -28,7 +38,9 @@ var GameState = {
         // this.theFaceOfEpicness.angle = 90;
     }, 
     update: function() {
-        // this.theFaceOfEpicness.angle += 0.5;
+    },
+    switchAnimal: function(sprite, event) {
+        console.log('move animal');
     }
 };
 
@@ -42,7 +54,7 @@ var i = "WATTS up, thats quite SHOCKING, I'm glad I'm not in your CURRENT situat
 
 var x = -1;
 
-while(x <= 999){
+while(x <= 99){
 
 x = x + 1;
 

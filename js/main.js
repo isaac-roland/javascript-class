@@ -1,29 +1,30 @@
 var GameState = {
     preload: function() {
         this.load.image('background', 'pictures/invader.jpg');
-        this.load.image('arrow', 'pictures/invader.jpg')
+        //this.load.image('arrow', 'pictures/invader.jpg')
         this.load.image('invader', 'pictures/invader.jpg');
-        this.load.image('epicFace', 'pictures/invader.jpg');
-        this.load.image('outerSpace', 'pictures/invader.jpg');
-        this.load.image('theFaceOfEpicness', 'pictures/invader.jpg');
-        this.load.image('rightArrow', 'pictures/invader.jpg');
+        //this.load.image('epicFace', 'pictures/invader.jpg');
+        //this.load.image('outerSpace', 'pictures/invader.jpg');
+        //this.load.image('theFaceOfEpicness', 'pictures/invader.jpg');
+        this.load.image('rightArrow', 'pictures/2.png');
+        this.load.image('leftArrow', 'pictures/3.png')
     },
     create: function() {
         this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
         this.scale.pageAlignH
-        this.background = this.game.add.sprite(10, 10, 'background');
+        this.background = this.game.add.sprite(0, 0, 'background');
         this.invader = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'invader');
         this.invader.anchor.setTo(0.5, 0.5);
 
-        this.leftArrow = this.game.add.sprite(60, this,game.world.centerY, 'invader');
+        this.leftArrow = this.game.add.sprite(60, this.game.world.centerY, 'leftArrow');
         this.leftArrow.anchor.setTo(0.5);
-        this.leftArrow.scale.x = {direction: -1};
+        this.leftArrow.scale.x = -1;
         this.leftArrow.customParams = {direction: -1};
         this.leftArrow.inputEnabled = true;
         this.leftArrow.input.pixelPerfectClick = true;
         this.leftArrow.events.onInputDown.add(this.switchAnimal, this);
 
-        this.rightArrow = this.game.add.sprite(580, this,game.world.centerY, 'invader');
+        this.rightArrow = this.game.add.sprite(580, this.game.world.centerY, 'rightArrow');
         this.rightArrow.anchor.setTo(0.5);
         this.rightArrow.customParams = {direction: 1};
         // this.invader.scale.setTo(1, 1);
@@ -54,7 +55,7 @@ var i = "WATTS up, thats quite SHOCKING, I'm glad I'm not in your CURRENT situat
 
 var x = -1;
 
-while(x <= 99){
+while(x <= 999){
 
 x = x + 1;
 
